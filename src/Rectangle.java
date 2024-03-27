@@ -50,7 +50,6 @@ public class Rectangle extends Shape {
         return new Rectangle(this.getWidth(), this.getLength(), this.getColor(), this.isFilled());
     }
 
-    @Override
     public boolean equals(Object obj) {
         if (obj == this) {
             return true;

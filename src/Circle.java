@@ -39,7 +39,6 @@ public class Circle extends Shape {
         return new Circle(this.getRadius(), this.getColor(), this.isFilled());
     }
 
-    @Override
     public boolean equals(Object obj) {
         if (obj == this) {
             return true;

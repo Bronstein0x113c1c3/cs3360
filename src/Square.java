@@ -38,7 +38,6 @@ public class Square extends Rectangle {
         return new Square(this.getSide(), this.getColor(), this.isFilled());
     }
 
-    @Override
     public boolean equals(Object obj) {
         if (obj == this) {
             return true;
