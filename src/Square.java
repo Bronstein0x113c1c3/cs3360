@@ -1,5 +1,4 @@
 public class Square extends Rectangle {
-    // constructors
     public Square() {
         super();
     }
@@ -12,9 +11,8 @@ public class Square extends Rectangle {
         super(side, side, color, filled);
     }
 
-    // getter setter
     public double getSide() {
-        return this.getSide();
+        return super.getLength();   // or getWidth()
     }
 
     public void setSide(double side) {
@@ -22,7 +20,6 @@ public class Square extends Rectangle {
         this.width = side;
     }
 
-    // inheritance
     public void setWidth(double side) {
         this.width = side;
         this.length = side;
@@ -42,14 +39,14 @@ public class Square extends Rectangle {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (o == this) {
+    public boolean equals(Object obj) {
+        if (obj == this) {
             return true;
         }
-        if (!(o instanceof Square)) {
+        if (!(obj instanceof Square)) {
             return false;
         }
-        Square s = (Square) o;
-        return s.getLength() == this.getLength();
+
+        return super.equals(obj);
     }
 }

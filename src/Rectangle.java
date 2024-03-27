@@ -2,7 +2,6 @@ public class Rectangle extends Shape {
     protected double width = 1.0;
     protected double length = 1.0;
 
-    // constructor
     public Rectangle() {
         super();
     }
@@ -19,7 +18,6 @@ public class Rectangle extends Shape {
         this.length = length;
     }
 
-    // get and set
     public double getWidth() {
         return this.width;
     }
@@ -36,7 +34,6 @@ public class Rectangle extends Shape {
         this.length = length;
     }
 
-    // for inheritance
     public double getArea() {
         return this.length * this.width;
     }
@@ -54,14 +51,18 @@ public class Rectangle extends Shape {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (o == this) {
+    public boolean equals(Object obj) {
+        if (obj == this) {
             return true;
         }
-        if (!(o instanceof Rectangle)) {
+        if (!(obj instanceof Rectangle)) {
             return false;
         }
-        Rectangle r = (Rectangle) o;
-        return (r.getLength() == this.getLength()) && (r.getWidth() == this.getWidth());
+        Rectangle rectangle = (Rectangle) obj;
+
+        boolean isLengthEqual = rectangle.length == this.length;
+        boolean isWidthEqual = rectangle.width == this.width;
+
+        return isLengthEqual && isWidthEqual && super.equals(obj);
     }
 }

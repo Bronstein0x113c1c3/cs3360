@@ -1,7 +1,6 @@
 public class Circle extends Shape {
     protected double radius = 1.0;
 
-    // constructor
     public Circle() {
         super();
     }
@@ -16,7 +15,6 @@ public class Circle extends Shape {
         this.radius = radius;
     }
 
-    // get and set...
     public double getRadius() {
         return this.radius;
     }
@@ -33,7 +31,6 @@ public class Circle extends Shape {
         return this.radius * 2 * java.lang.Math.PI;
     }
 
-    // for sout
     public String toString() {
         return String.format("Circle[%s, radius=%.2f]", super.toString(), this.radius);
     }
@@ -43,14 +40,16 @@ public class Circle extends Shape {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (o == this) {
+    public boolean equals(Object obj) {
+        if (obj == this) {
             return true;
         }
-        if (!(o instanceof Circle)) {
+        if (!(obj instanceof Circle)) {
             return false;
         }
-        Circle c = (Circle) o;
-        return c.getRadius() == this.getRadius();
+
+        Circle circle = (Circle) obj;
+        boolean isRadiusEqual = circle.radius == this.radius;
+        return isRadiusEqual && super.equals(obj);
     }
 }

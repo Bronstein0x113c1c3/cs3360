@@ -1,8 +1,7 @@
-public abstract class Shape {
-    protected String color;
-    protected Boolean filled;
+public abstract class Shape implements Cloneable{
+    protected String color = "red";
+    protected Boolean filled = true;
 
-    // constructor
     public Shape() {
         this.color = "red";
         this.filled = true;
@@ -13,7 +12,6 @@ public abstract class Shape {
         this.filled = filled;
     }
 
-    // get and set
     public String getColor() {
         return this.color;
     }
@@ -26,20 +24,33 @@ public abstract class Shape {
         return this.filled;
     }
 
-    public void setFilled() {
-        this.filled = true;
+    public void setFilled(boolean filled) {
+        this.filled = filled;
     }
 
     abstract double getArea();
 
     abstract double getPerimeter();
 
-    // for sout
     public String toString() {
         return String.format("Shape[color=%s, filled=%s]", this.color, this.filled);
     }
 
     public abstract Shape clone();
 
-    public abstract boolean equals(Object o);
+    public boolean equals(Object obj)
+    {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof Shape)) {
+            return false;
+        }
+        
+        Shape shape = (Shape) obj;
+        boolean isSameColor = shape.color == this.color;
+        boolean isSameFilled = shape.filled == this.filled;
+
+        return isSameColor && isSameFilled;
+    }
 }
